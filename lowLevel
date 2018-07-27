@@ -1,0 +1,33 @@
+ <!-- RIGHT SIDE INFORMATION -->
+        <div id="apcontents">
+            <h1 id="top">Apache HTTP Server 2.2 vulnerabilities</h1><p>This page lists all security vulnerabilities fixed in released
+versions of Apache HTTP Server 2.2.  Each
+vulnerability is given a security <a href="/security/impact_levels.html">impact rating</a> by the Apache
+security team - please note that this rating may well vary from
+platform to platform.  We also list the versions of Apache httpd the
+flaw is known to affect, and where a flaw has not been verified list
+the version with a question mark.  </p><p> Please note that if a vulnerability is shown below as being fixed
+in a "-dev" release then this means that a fix has been applied to
+the development source tree and will be part of an upcoming full release.</p><p> Please send comments or corrections for
+these vulnerabilities to the <a href="/security_report.html">Security
+Team</a>.  </p><p><h3>Apache httpd 2.2 is End-of-Life since December 2017 and should not be used.   This page only lists security issues that occurred before the End-of-Life.  Subsequent issues may have affected 2.2 but will not be investigated or listed here.  Users are advised to upgrade to the currently supported released version to address known issues.</h3></p><br/><h1 id="2.2.35-never">
+Not fixed in Apache httpd 2.2</h1><dl>
+  <dt>
+    <h3 id="CVE-2017-9798">low:
+    <name name="CVE-2017-9798">Use-after-free when using &lt;Limit &gt; with an unrecognized method in .htaccess ("OptionsBleed")</name>
+    (<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9798">CVE-2017-9798</a>)
+  </h3>
+  </dt>
+  <dd>
+    <p>When an unrecognized HTTP Method is given in an &lt;Limit {method}&gt;
+directive in an .htaccess file, and that .htaccess file is processed by the
+corresponding request, the global methods table is corrupted in the current
+worker process, resulting in erratic behaviour.</p>
+    <p>This behavior may be avoided by listing all unusual HTTP Methods in a global
+httpd.conf RegisterHttpMethod directive in httpd release 2.4.25 and later.</p>
+    <p>To permit other .htaccess directives while denying the &lt;Limit &gt; directive, see the AllowOverrideList directive.</p>
+    <p>Source code patch (2.4) is at;</p>
+    <ul>
+<li><a href="https://www.apache.org/dist/httpd/patches/apply_to_2.4.27/CVE-2017-9798-patch-2.4.patch">CVE-2017-9798-patch-2.4.patch</a></li>
+</ul>
+    <p>Source code patch (2.2) is at;</p>
